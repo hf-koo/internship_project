@@ -13,3 +13,8 @@ def log_in_page(context):
     context.app.sign_in_page.email_log_in()
     context.app.sign_in_page.password_log_in()
     context.app.sign_in_page.continue_button()
+    sleep(3)
+
+@when('Click on Get a free Subscription')
+def free_sub(context):
+    context.app.log_in_page.free_sub()

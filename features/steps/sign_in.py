@@ -18,3 +18,7 @@ def log_in_page(context):
 @when('Click on Get a free Subscription')
 def free_sub(context):
     context.app.log_in_page.free_sub()
+
+@when('Switch the new tab')
+def switch_to_new_tab(context):
+    context.app.log_in_page.switch_to_new_tab()

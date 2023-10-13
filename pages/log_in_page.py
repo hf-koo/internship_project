@@ -11,6 +11,10 @@ class LogInPage(Page):
     def free_sub(self):
         self.click(*self.Free_Sub)
 
+    def store_original_tab(self):
+        return self.get_current_window()
 
+    def switch_to_new_tab(self):
+        self.switch_to_new_window()
 
 

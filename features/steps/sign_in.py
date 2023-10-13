@@ -8,5 +8,8 @@ from time import sleep
 def open_reelly(context):
     context.app.main_page.open_main()
 
-# @when('Log in to the page')
-# def log_in_page(context):
+@when('Log in to the page')
+def log_in_page(context):
+    context.app.sign_in_page.email_log_in()
+    context.app.sign_in_page.password_log_in()
+    context.app.sign_in_page.continue_button()

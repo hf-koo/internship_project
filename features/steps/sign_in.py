@@ -22,3 +22,12 @@ def free_sub(context):
 @when('Switch the new tab')
 def switch_to_new_tab(context):
     context.app.log_in_page.switch_to_new_tab()
+
+@when('Enter some test information in the form at the right side of the page')
+def enter_some_test(context):
+    context.app.log_in_page.your_country()
+    context.app.log_in_page.company_name()
+    context.app.log_in_page.your_name()
+    context.app.log_in_page.your_phone()
+    context.app.log_in_page.email()
+

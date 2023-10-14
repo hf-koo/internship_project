@@ -31,3 +31,7 @@ def enter_some_test(context):
     context.app.log_in_page.your_phone()
     context.app.log_in_page.email()
 
+@then('Verify the right information is present')
+def verify_right_information(context):
+    context.app.log_in_page.verify_info()
+

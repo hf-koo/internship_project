@@ -48,3 +48,6 @@ class LogInPage(Page):
     def email(self):
         self.input_text(self.Email_Input, *self.Email)
         sleep(2)
+
+    def verify_info(self):
+        self.verify_text(*self.Name_Input, *self.Your_Name)

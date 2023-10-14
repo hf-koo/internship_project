@@ -9,4 +9,4 @@ Feature: # Enter feature name here
    And Switch the new tab
    And Enter some test information in the form at the right side of the page
    Then Verify the right information is present
-   #And Switch back to original
+   Then Verify send an application button is available

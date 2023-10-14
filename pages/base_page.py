@@ -36,6 +36,10 @@ class Page:
         assert actual_text in expected_text, \
             f'Error, expected {expected_text} did not match actual {actual_text}'
 
+    def check_text(self, expected_text, *locator):
+        actual_text = self.find_element(*locator).text
+        assert actual_text == expected_text
+
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
         assert expected_text in actual_text, \

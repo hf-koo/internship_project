@@ -35,3 +35,7 @@ def enter_some_test(context):
 def verify_right_information(context):
     context.app.log_in_page.verify_info()
 
+@then('Verify send an application button is available')
+def send_application_btn(context):
+    context.app.log_in_page.send_application_button()
+

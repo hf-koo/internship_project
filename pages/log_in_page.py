@@ -18,6 +18,7 @@ class LogInPage(Page):
     Your_Phone = (By.CSS_SELECTOR, 'input#Director-phone')
     Email_Input = '123@mail.com'
     Email = (By.CSS_SELECTOR, 'input#Email-2')
+    Send_Application_Button = (By.CSS_SELECTOR, 'input.purchase-access.w-button')
 
 
     def free_sub(self):
@@ -50,4 +51,8 @@ class LogInPage(Page):
         sleep(2)
 
     def verify_info(self):
-        self.verify_text(*self.Name_Input, *self.Your_Name)
+        actual_name = self.find_element(*self.Your_Name).get_attribute('value')
+        assert actual_name == self.Name_Input, f'Expected name: {self.Name_Input}, Actual name: {actual_name}'
+
+    def send_application_button(self):
+        self.find_element(*self.Send_Application_Button)

@@ -15,18 +15,22 @@ def browser_init(context):
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
 
+    ### OTHER BROWSERS ###
+    service = Service(executable_path='/Users/ahdoy/Desktop/internship_project/geckodriver')
+    context.driver = webdriver.Firefox(service=service)
+    # context.driver = webdriver.Safari()
 
 
 
     ## HEADLESS MODE ##
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(
-        options=options,
-        service=service
-    )
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
     context.driver.set_window_size(1920,1080)
     context.driver.implicitly_wait(4)
 

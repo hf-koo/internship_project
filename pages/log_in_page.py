@@ -48,7 +48,7 @@ class LogInPage(Page):
 
     def email(self):
         self.input_text(self.Email_Input, *self.Email)
-        sleep(2)
+        sleep(3)
 
     def verify_info(self):
         actual_name = self.find_element(*self.Your_Name).get_attribute('value')

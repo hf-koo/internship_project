@@ -10,6 +10,7 @@ def open_reelly(context):
 
 @when('Log in to the page')
 def log_in_page(context):
+    sleep(2)
     context.app.sign_in_page.email_log_in()
     context.app.sign_in_page.password_log_in()
     context.app.sign_in_page.continue_button()

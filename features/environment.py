@@ -16,8 +16,8 @@ def browser_init(context):
     # context.driver = webdriver.Chrome(service=service)
 
     ### OTHER BROWSERS ###
-    service = Service(executable_path='/Users/ahdoy/Desktop/internship_project/geckodriver')
-    context.driver = webdriver.Firefox(service=service)
+    # service = Service(executable_path='/Users/ahdoy/Desktop/internship_project/geckodriver')
+    # context.driver = webdriver.Firefox(service=service)
     # context.driver = webdriver.Safari()
 
 
@@ -31,6 +31,23 @@ def browser_init(context):
     #     options=options,
     #     service=service
     # )
+
+    ### BROWSERSTACK ###
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    bs_user = 'jackykoo_8QfjEm'
+    bs_key = 'NWQXJ64nNwFvRm9MSQrp'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        'os': 'Windows',
+        'osVersion': '10',
+        'browserName': 'Firefox',
+        'sessionName': 'scenario_name'
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
+
     context.driver.set_window_size(1920,1080)
     context.driver.implicitly_wait(4)
 

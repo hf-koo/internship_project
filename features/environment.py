@@ -20,7 +20,21 @@ def browser_init(context):
     # context.driver = webdriver.Firefox(service=service)
     # context.driver = webdriver.Safari()
 
+    mobile_emulation = {
 
+        "deviceMetrics": {"width": 390, "height": 844, "pixelRatio": 3.0},
+
+        "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19",
+
+        "clientHints": {"platform": "Android", "mobile": True}}
+
+    chrome_options = Options()
+
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+    driver = webdriver.Chrome(options=chrome_options)
+
+    driver.get("https://soft.reelly.io/sign-in")
 
     ## HEADLESS MODE ##
     # options = webdriver.ChromeOptions()
@@ -34,19 +48,20 @@ def browser_init(context):
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'jackykoo_8QfjEm'
-    bs_key = 'NWQXJ64nNwFvRm9MSQrp'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # bs_user = 'jackykoo_8QfjEm'
+    # bs_key = 'NWQXJ64nNwFvRm9MSQrp'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'Windows',
+    #     'osVersion': '10',
+    #     'browserName': 'Firefox',
+    #     'sessionName': 'scenario_name'
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
-    options = Options()
-    bstack_options = {
-        'os': 'Windows',
-        'osVersion': '10',
-        'browserName': 'Firefox',
-        'sessionName': 'scenario_name'
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.set_window_size(1920,1080)
     context.driver.implicitly_wait(4)

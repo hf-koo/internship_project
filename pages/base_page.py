@@ -15,6 +15,13 @@ class Page:
         sleep(2)
         self.driver.refresh()
 
+    def open_url_sign_in(self, end_url='login'):
+        url = f'https://soft.reelly.io/{end_url}'
+        self.driver.get(url)
+        logger.info(f'Openning URL {url}')
+        sleep(2)
+        self.driver.refresh()
+
     def click(self, *locator):
         logger.info(f'Clicking on {locator}')
         self.driver.find_element(*locator).click()

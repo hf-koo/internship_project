@@ -14,3 +14,8 @@ def log_in_page(context):
     context.app.sign_in_page.password_log_in()
     context.app.sign_in_page.continue_button()
     sleep(3)
+
+@when('Click on Free Trial')
+def free_sub(context):
+    sleep(2)
+    context.app.mobile_page.free_trial()

@@ -6,6 +6,7 @@ Feature: # Enter feature name here
     Given Open Main page
     When Log in page
     And Click on Free Trial
-   #And Enter some test information in the form at the right side of the page
-   #Then Verify the right information is present
-   #Then Verify send an application button is available
+    And Find Free Sub
+   And Enter texts information in the form
+   Then Verify info is correct
+   Then Verify application btn is available
